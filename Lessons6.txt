@@ -1,0 +1,144 @@
+********************************************* Задание 1 ***********************************************************
+
+vh@vh-VirtualBox:~$ mkdir lessons6
+
+vh@vh-VirtualBox:~$ cd lessons6
+
+vh@vh-VirtualBox:~/lessons6$ cat >script1.sh
+
+#!/bin/bash
+
+for u in {1..3}
+
+	do
+
+		echo $USER
+
+	done
+
+vh@vh-VirtualBox:~/lessons6$ cat script1.sh
+
+#!/bin/bash
+
+for u in {1..3}
+
+	do
+
+		echo $USER
+
+	done
+
+vh@vh-VirtualBox:~/lessons6$ bash script1.sh
+
+vh
+
+vh
+
+vh
+
+vh@vh-VirtualBox:~/lessons6$ 
+
+
+********************************************* Задание 2************************************************************
+
+vh@vh-VirtualBox:~/lessons6$ cat >numbers.sh
+
+#!/bin/bash
+
+x=0
+
+while [ $x -lt 102 ]
+
+	do
+
+		printf "${x} "     
+
+		x=$(( $x + 2 ))
+
+	done 
+
+vh@vh-VirtualBox:~/lessons6$ bash numbers.sh 
+
+0 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 
+
+vh@vh-VirtualBox:~/lessons6$ nano numbers.sh 
+
+vh@vh-VirtualBox:~/lessons6$ bash numbers.sh 
+
+0 
+2 
+4 
+6 
+8 
+10 
+12 
+14 
+16 
+18 
+20 
+22 
+24 
+26 
+28 
+30 
+32 
+34 
+36 
+38 
+40 
+42 
+44 
+46 
+48 
+50 
+52 
+54 
+56 
+58 
+60 
+62 
+64 
+66 
+68 
+70 
+72 
+74 
+76 
+78 
+80 
+82 
+84 
+86 
+88 
+90 
+92 
+94 
+96 
+98 
+100 
+
+********************************************* Задание 3 ***********************************************************
+
+vh@vh-VirtualBox:~$ nano test.txt
+
+vh@vh-VirtualBox:~$ cat test.txt
+123445656
+
+vh@vh-VirtualBox:~$ sudo nano /etc/crontab
+
+
+
+*/10  *    * * *     vh    cat /home/vh/test.txt >> /home/vh/test.txt.bak
+
+# ДВЕ СТЕЛОЧКИ СТОЯТ НА ДОЗАПИСЬ ТОЛЬКО ДЛЯ ТОГО ЧТОБЫ БЫЛ ВИДЕН РЕЗУЛЬТАТ РАБОТЫ CRON
+
+
+vh@vh-VirtualBox:~$ cat test.txt.bak 
+123445656
+vh@vh-VirtualBox:~$ cat test.txt.bak 
+123445656
+123445656
+vh@vh-VirtualBox:~$ cat test.txt.bak 
+123445656
+123445656
+123445656

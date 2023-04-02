@@ -1,0 +1,599 @@
+********************************************* Задание 2 ***********************************************************
+
+vh@vh-VirtualBox:~$ sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет ca-certificates самой новой версии (20211016).
+
+ca-certificates помечен как установленный вручную.
+
+Уже установлен пакет software-properties-common самой новой версии (0.99.22.3).
+
+software-properties-common помечен как установленный вручную.
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libflashrom1 libftdi1-2
+
+Для их удаления используйте «sudo apt autoremove».
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  apt-transport-https curl
+
+Обновлено 0 пакетов, установлено 2 новых пакетов, для удаления отмечено 0 пакетов, и 4 пакетов не обновлено.
+
+Необходимо скачать 196 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 622 kB.
+
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 apt-transport-https all 2.4.8 [1 506 B]
+
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 curl amd64 7.81.0-1ubuntu1.6 [194 kB]
+
+Получено 196 kB за 0с (890 kB/s)
+
+Выбор ранее не выбранного пакета apt-transport-https.
+
+(Чтение базы данных … на данный момент установлено 209509 файлов и каталогов.)
+
+Подготовка к распаковке …/apt-transport-https_2.4.8_all.deb …
+
+Распаковывается apt-transport-https (2.4.8) …
+
+Выбор ранее не выбранного пакета curl.
+
+Подготовка к распаковке …/curl_7.81.0-1ubuntu1.6_amd64.deb …
+
+Распаковывается curl (7.81.0-1ubuntu1.6) …
+
+Настраивается пакет apt-transport-https (2.4.8) …
+
+Настраивается пакет curl (7.81.0-1ubuntu1.6) …
+
+Обрабатываются триггеры для man-db (2.10.2-1) …
+
+vh@vh-VirtualBox:~$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+
+OK
+
+vh@vh-VirtualBox:~$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+Репозиторий: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable'
+
+Описание:
+
+Archive for codename: jammy components: stable
+
+Дополнительные сведения: https://download.docker.com/linux/ubuntu
+
+Добавление репозитория.
+
+Press [ENTER] to continue or Ctrl-c to cancel.
+
+Adding deb entry to /etc/apt/sources.list.d/archive_uri-https_download_docker_com_linux_ubuntu-jammy.list
+
+Adding disabled deb-src entry to /etc/apt/sources.list.d/archive_uri-https_download_docker_com_linux_ubuntu-jammy.list
+
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease              
+
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease            
+
+Сущ:4 http://security.ubuntu.com/ubuntu jammy-security InRelease               
+
+Пол:5 https://download.docker.com/linux/ubuntu jammy InRelease [48,9 kB]       
+
+Пол:6 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages [9 481 B]
+
+Получено 58,3 kB за 1с (45,2 kB/s)        
+
+Чтение списков пакетов… Готово
+
+W: https://download.docker.com/linux/ubuntu/dists/jammy/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+
+vh@vh-VirtualBox:~$ sudo apt update
+
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease              
+
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease            
+
+Сущ:4 https://download.docker.com/linux/ubuntu jammy InRelease                 
+
+Сущ:5 http://security.ubuntu.com/ubuntu jammy-security InRelease               
+
+Чтение списков пакетов… Готово            
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Может быть обновлено 4 пакета. Запустите «apt list --upgradable» для их показа.
+
+W: https://download.docker.com/linux/ubuntu/dists/jammy/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+
+vh@vh-VirtualBox:~$ sudo apt upgrade -y
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Расчёт обновлений… Готово
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libflashrom1 libftdi1-2
+
+Для их удаления используйте «sudo apt autoremove».
+
+Try Ubuntu Pro beta with a free personal subscription on up to 5 machines.
+
+Learn more at https://ubuntu.com/pro
+
+Следующие пакеты будут оставлены в неизменном виде:
+
+  grub-efi-amd64-bin grub-efi-amd64-signed libfprint-2-2
+
+  ubuntu-advantage-tools
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 4 пакетов не обновлено.
+
+vh@vh-VirtualBox:~$ sudo apt install docker -y
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libflashrom1 libftdi1-2
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  wmdocker
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  docker wmdocker
+
+Обновлено 0 пакетов, установлено 2 новых пакетов, для удаления отмечено 0 пакетов, и 4 пакетов не обновлено.
+
+Необходимо скачать 14,3 kB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 58,4 kB.
+
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 wmdocker amd64 1.5-2 [13,0 kB]
+
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 docker all 1.5-2 [1 316 B]
+
+Получено 14,3 kB за 0с (46,3 kB/s)     
+
+Выбор ранее не выбранного пакета wmdocker.
+
+(Чтение базы данных … на данный момент установлено 209520 файлов и каталогов.)
+
+Подготовка к распаковке …/wmdocker_1.5-2_amd64.deb …
+
+Распаковывается wmdocker (1.5-2) …
+
+Выбор ранее не выбранного пакета docker.
+
+Подготовка к распаковке …/archives/docker_1.5-2_all.deb …
+
+Распаковывается docker (1.5-2) …
+
+Настраивается пакет wmdocker (1.5-2) …
+
+Настраивается пакет docker (1.5-2) …
+
+Обрабатываются триггеры для man-db (2.10.2-1) …
+
+vh@vh-VirtualBox:~$ sudo apt install docker.io -y
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Следующие пакеты устанавливались автоматически и больше не требуются:
+
+  libflashrom1 libftdi1-2
+
+Для их удаления используйте «sudo apt autoremove».
+
+Будут установлены следующие дополнительные пакеты:
+
+  bridge-utils containerd git git-man liberror-perl pigz runc ubuntu-fan
+
+Предлагаемые пакеты:
+
+  ifupdown aufs-tools btrfs-progs cgroupfs-mount | cgroup-lite debootstrap
+
+  docker-doc rinse zfs-fuse | zfsutils git-daemon-run | git-daemon-sysvinit
+
+  git-doc git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn
+
+Следующие НОВЫЕ пакеты будут установлены:
+
+  bridge-utils containerd docker.io git git-man liberror-perl pigz runc
+
+  ubuntu-fan
+
+Обновлено 0 пакетов, установлено 9 новых пакетов, для удаления отмечено 0 пакетов, и 4 пакетов не обновлено.
+
+Необходимо скачать 69,4 MB архивов.
+
+После данной операции объём занятого дискового пространства возрастёт на 303 MB.
+
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 pigz amd64 2.6-1 [63,6 kB]
+
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 bridge-utils amd64 1.7-1ubuntu3 [34,4 kB]
+
+Пол:3 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 runc amd64 1.1.0-0ubuntu1 [4 087 kB]
+
+Пол:4 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 containerd amd64 1.5.9-0ubuntu3 [27,0 MB]
+
+Пол:5 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 docker.io amd64 20.10.12-0ubuntu4 [34,0 MB]
+
+Пол:6 http://ru.archive.ubuntu.com/ubuntu jammy/main amd64 liberror-perl all 0.17029-1 [26,5 kB]
+
+Пол:7 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 git-man all 1:2.34.1-1ubuntu1.5 [953 kB]
+
+Пол:8 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 git amd64 1:2.34.1-1ubuntu1.5 [3 132 kB]
+
+Пол:9 http://ru.archive.ubuntu.com/ubuntu jammy/universe amd64 ubuntu-fan all 0.12.16 [35,2 kB]
+
+Получено 69,4 MB за 15с (4 523 kB/s)                                           
+
+Предварительная настройка пакетов …
+
+Выбор ранее не выбранного пакета pigz.
+
+(Чтение базы данных … на данный момент установлено 209530 файлов и каталогов.)
+
+Подготовка к распаковке …/0-pigz_2.6-1_amd64.deb …
+
+Распаковывается pigz (2.6-1) …
+
+Выбор ранее не выбранного пакета bridge-utils.
+
+Подготовка к распаковке …/1-bridge-utils_1.7-1ubuntu3_amd64.deb …
+
+Распаковывается bridge-utils (1.7-1ubuntu3) …
+
+Выбор ранее не выбранного пакета runc.
+
+Подготовка к распаковке …/2-runc_1.1.0-0ubuntu1_amd64.deb …
+
+Распаковывается runc (1.1.0-0ubuntu1) …
+
+Выбор ранее не выбранного пакета containerd.
+
+Подготовка к распаковке …/3-containerd_1.5.9-0ubuntu3_amd64.deb …
+
+Распаковывается containerd (1.5.9-0ubuntu3) …
+
+Выбор ранее не выбранного пакета docker.io.
+
+Подготовка к распаковке …/4-docker.io_20.10.12-0ubuntu4_amd64.deb …
+
+Распаковывается docker.io (20.10.12-0ubuntu4) …
+
+Выбор ранее не выбранного пакета liberror-perl.
+
+Подготовка к распаковке …/5-liberror-perl_0.17029-1_all.deb …
+
+Распаковывается liberror-perl (0.17029-1) …
+
+Выбор ранее не выбранного пакета git-man.
+
+Подготовка к распаковке …/6-git-man_1%3a2.34.1-1ubuntu1.5_all.deb …
+
+Распаковывается git-man (1:2.34.1-1ubuntu1.5) …
+
+Выбор ранее не выбранного пакета git.
+
+Подготовка к распаковке …/7-git_1%3a2.34.1-1ubuntu1.5_amd64.deb …
+
+Распаковывается git (1:2.34.1-1ubuntu1.5) …
+
+Выбор ранее не выбранного пакета ubuntu-fan.
+
+Подготовка к распаковке …/8-ubuntu-fan_0.12.16_all.deb …
+
+Распаковывается ubuntu-fan (0.12.16) …
+
+Настраивается пакет runc (1.1.0-0ubuntu1) …
+
+Настраивается пакет liberror-perl (0.17029-1) …
+
+Настраивается пакет bridge-utils (1.7-1ubuntu3) …
+
+Настраивается пакет pigz (2.6-1) …
+
+Настраивается пакет git-man (1:2.34.1-1ubuntu1.5) …
+
+Настраивается пакет containerd (1.5.9-0ubuntu3) …
+
+Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service →
+
+ /lib/systemd/system/containerd.service.
+
+Настраивается пакет ubuntu-fan (0.12.16) …
+
+Created symlink /etc/systemd/system/multi-user.target.wants/ubuntu-fan.service →
+
+ /lib/systemd/system/ubuntu-fan.service.
+
+Настраивается пакет docker.io (20.10.12-0ubuntu4) …
+
+Добавляется группа «docker» (GID 137) ...
+
+Готово.
+
+Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /li
+
+b/systemd/system/docker.service.
+
+Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /lib/sy
+
+stemd/system/docker.socket.
+
+Настраивается пакет git (1:2.34.1-1ubuntu1.5) …
+
+Обрабатываются триггеры для man-db (2.10.2-1) …
+
+vh@vh-VirtualBox:~$ docker -v
+
+Docker version 20.10.12, build 20.10.12-0ubuntu4
+
+vh@vh-VirtualBox:~$ sudo docker ps -a
+
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+vh@vh-VirtualBox:~$ sudo docker run hello-world
+
+Unable to find image 'hello-world:latest' locally
+
+latest: Pulling from library/hello-world
+
+2db29710123e: Pull complete 
+
+Digest: sha256:e18f0a777aefabe047a671ab3ec3eed05414477c951ab1a6f352a06974245fe7
+
+Status: Downloaded newer image for hello-world:latest
+
+
+
+Hello from Docker!
+
+This message shows that your installation appears to be working correctly.
+
+
+
+To generate this message, Docker took the following steps:
+
+ 1. The Docker client contacted the Docker daemon.
+
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+
+    (amd64)
+
+ 3. The Docker daemon created a new container from that image which runs the
+
+    executable that produces the output you are currently reading.
+
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+
+    to your terminal.
+
+
+
+To try something more ambitious, you can run an Ubuntu container with:
+
+ $ docker run -it ubuntu bash
+
+
+
+Share images, automate workflows, and more with a free Docker ID:
+
+ https://hub.docker.com/
+
+
+
+For more examples and ideas, visit:
+
+ https://docs.docker.com/get-started/
+
+
+
+vh@vh-VirtualBox:~$ sudo docker ps -a
+
+CONTAINER ID   IMAGE         COMMAND    CREATED         STATUS                     PORTS     NAMES
+
+0dc6bac8b9a8   hello-world   "/hello"   6 seconds ago   Exited (0) 4 seconds ago             sharp_poitras
+
+
+
+*********************************************************** Задание 3 *******************************************
+vh@vh-VirtualBox:~$ sudo docker images
+
+[sudo] пароль для vh: 
+
+REPOSITORY       TAG       IMAGE ID       CREATED         SIZE
+
+vh_nginx_image   latest    376ccd5d4e43   12 hours ago    173MB
+
+vh_nginx         latest    376ccd5d4e43   12 hours ago    173MB
+
+ubuntu           latest    a8780b506fa4   6 days ago      77.8MB
+
+hello-world      latest    feb5d9fea6a5   13 months ago   13.3kB
+
+vh@vh-VirtualBox:~$ sudo docker run -d ubuntu
+
+5755b72fed524ea4d0fa589fc644ed120d389915b73d4ea7c1bfba1cb92f37e3
+
+vh@vh-VirtualBox:~$ sudo docker ps -a
+
+CONTAINER ID   IMAGE            COMMAND    CREATED          STATUS                       PORTS     NAMES
+
+5755b72fed52   ubuntu           "bash"     25 seconds ago   Exited (0) 25 seconds ago              relaxed_keldysh
+
+7a7796c8d31a   ubuntu           "bash"     10 minutes ago   Exited (129) 6 minutes ago             recursing_hypatia
+
+569839c12572   vh_nginx_image   "bash"     12 hours ago     Exited (0) 12 hours ago                dazzling_proskuriakova
+
+add8a27c1eb5   ubuntu           "bash"     13 hours ago     Exited (129) 12 hours ago              compassionate_antonelli
+
+0dc6bac8b9a8   hello-world      "/hello"   13 hours ago     Exited (0) 13 hours ago                sharp_poitras
+
+vh@vh-VirtualBox:~$ sudo docker run -it ubuntu
+
+root@1bae95df82f9:/# ls
+
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+
+root@1bae95df82f9:/# exit
+
+************************************************************** Задание 4 **************************************
+
+vh@vh-VirtualBox:~$ cat > Dockerfile
+
+FROM ubuntu:latest
+
+MAINTAINER VH
+
+RUN apt-get update
+
+RUN apt-get install nginx -y
+
+RUN apt-get install php-fpm -y
+
+VOLUME "/var/www/html"
+
+EXPOSE 80
+
+CMD /usr/sbin/nginx -g "daemon off;"^C
+
+vh@vh-VirtualBox:~$ cat Dockerfile 
+
+FROM ubuntu:latest
+
+MAINTAINER VH
+
+RUN apt-get update
+
+RUN apt-get install nginx -y
+
+RUN apt-get install php-fpm -y
+
+VOLUME "/var/www/html"
+
+EXPOSE 80
+
+vh@vh-VirtualBox:~$ sudo docker build -t vh_nginx .
+
+[sudo] пароль для vh: 
+
+Sending build context to Docker daemon   80.7MB
+
+Step 1/6 : FROM ubuntu:latest
+
+ ---> a8780b506fa4
+
+.........
+
+h@vh-VirtualBox:~$ sudo docker images
+
+REPOSITORY       TAG       IMAGE ID       CREATED         SIZE
+vh_nginx         latest    376ccd5d4e43   5 minutes ago   173MB
+vh_nginx_image   latest    376ccd5d4e43   5 minutes ago   173MB
+ubuntu           latest    a8780b506fa4   6 days ago      77.8MB
+hello-world      latest    feb5d9fea6a5   13 months ago   13.3kB
+
+vh@vh-VirtualBox:~$ sudo docker run -d -p 8080:80 vh_nginx_image
+569839c12572eda99f075c317cfb3a088d3035a8409734d3f6d52b200ed2ec0
+
+vh@vh-VirtualBox:~$ sudo docker ps -a
+CONTAINER ID   IMAGE            COMMAND    CREATED          STATUS                        PORTS     NAMES
+569839c12572   vh_nginx_image   "bash"     18 seconds ago   Exited (0) 18 seconds ago               dazzling_proskuriakova
+add8a27c1eb5   ubuntu           "bash"     16 minutes ago   Exited (129) 15 minutes ago             compassionate_antonelli
+0dc6bac8b9a8   hello-world      "/hello"   19 minutes ago   Exited (0) 19 minutes ago               sharp_poitras
+
+vh@vh-VirtualBox:~$ sudo docker stop 569839c12572 
+569839c12572
+
+vh@vh-VirtualBox:~$ sudo docker ps -a
+
+CONTAINER ID   IMAGE            COMMAND    CREATED          STATUS                        PORTS     NAMES
+
+1bae95df82f9   ubuntu           "bash"     20 minutes ago   Exited (129) 9 minutes ago              recursing_stonebraker
+
+5755b72fed52   ubuntu           "bash"     23 minutes ago   Exited (0) 23 minutes ago               relaxed_keldysh
+
+7a7796c8d31a   ubuntu           "bash"     34 minutes ago   Exited (129) 29 minutes ago             recursing_hypatia
+
+569839c12572   vh_nginx_image   "bash"     13 hours ago     Exited (0) 13 hours ago                 dazzling_proskuriakova
+
+add8a27c1eb5   ubuntu           "bash"     13 hours ago     Exited (129) 13 hours ago               compassionate_antonelli
+
+0dc6bac8b9a8   hello-world      "/hello"   13 hours ago     Exited (0) 13 hours ago                 sharp_poitras
+
+vh@vh-VirtualBox:~$ sudo docker rm $(sudo docker ps -aq)
+
+1bae95df82f9
+
+5755b72fed52
+
+7a7796c8d31a
+
+569839c12572
+
+add8a27c1eb5
+
+0dc6bac8b9a8
+
+vh@vh-VirtualBox:~$ sudo docker ps -a
+
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+vh@vh-VirtualBox:~$ sudo docker images
+
+REPOSITORY       TAG       IMAGE ID       CREATED         SIZE
+vh_nginx         latest    376ccd5d4e43   13 hours ago    173MB
+vh_nginx_image   latest    376ccd5d4e43   13 hours ago    173MB
+ubuntu           latest    a8780b506fa4   6 days ago      77.8MB
+hello-world      latest    feb5d9fea6a5   13 months ago   13.3kB
+
+vh@vh-VirtualBox:~$ sudo docker images -q
+376ccd5d4e43
+376ccd5d4e43
+a8780b506fa4
+feb5d9fea6a5
+
+vh@vh-VirtualBox:~$ sudo docker rmi $(sudo docker images -q)
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:e18f0a777aefabe047a671ab3ec3eed05414477c951ab1a6f352a06974245fe7
+Deleted: sha256:feb5d9fea6a5e9606aa995e879d862b825965ba48de054caab5ef356dc6b3412
+Deleted: sha256:e07ee1baac5fae6a26f30cabfe54a36d3402f96afda318fe0a96cec4ca393359
+Error response from daemon: conflict: unable to delete 376ccd5d4e43 (must be forced) - image is referenced in multiple repositories
+Error response from daemon: conflict: unable to delete 376ccd5d4e43 (must be forced) - image is referenced in multiple repositories
+Error response from daemon: conflict: unable to delete a8780b506fa4 (cannot be forced) - image has dependent child images

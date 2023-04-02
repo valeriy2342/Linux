@@ -1,0 +1,427 @@
+
+******************************************************* Задание 1 ******************************************************
+
+vh@vh-VirtualBox:~$ sudo useradd -s /bin/bash -m -d /home/user1 user1
+
+vh@vh-VirtualBox:~$ ls /home
+
+user1  vh
+
+vh@vh-VirtualBox:~$ sudo passwd user1
+
+Новый пароль: 
+
+НЕУДАЧНЫЙ ПАРОЛЬ: Пароль должен содержать не менее 8 символов
+
+Повторите ввод нового пароля: 
+
+passwd: пароль успешно обновлён
+
+vh@vh-VirtualBox:~$ su user1
+
+Пароль: 
+
+user1@vh-VirtualBox:/home/vh$ whoami
+
+user1
+
+user1@vh-VirtualBox:/home/vh$ exit
+
+exit
+
+vh@vh-VirtualBox:~$ more /etc/passwd
+
+root:x:0:0:root:/root:/bin/bash
+
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+
+sync:x:4:65534:sync:/bin:/bin/sync
+
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologi
+
+n
+
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/n
+
+ologin
+
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+
+messagebus:x:102:105::/nonexistent:/usr/sbin/nologin
+
+systemd-timesync:x:103:106:systemd Time Synchronization,,,:/run/systemd:/usr/sbi
+
+n/nologin
+
+syslog:x:104:111::/home/syslog:/usr/sbin/nologin
+
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+
+tss:x:106:112:TPM software stack,,,:/var/lib/tpm:/bin/false
+
+uuidd:x:107:115::/run/uuidd:/usr/sbin/nologin
+
+systemd-oom:x:108:116:systemd Userspace OOM Killer,,,:/run/systemd:/usr/sbin/nol
+
+ogin
+
+tcpdump:x:109:117::/nonexistent:/usr/sbin/nologin
+
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/usr/sbin/
+
+nologin
+
+usbmux:x:111:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+
+dnsmasq:x:112:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+
+kernoops:x:113:65534:Kernel Oops Tracking Daemon,,,:/:/usr/sbin/nologin
+
+avahi:x:114:121:Avahi mDNS daemon,,,:/run/avahi-daemon:/usr/sbin/nologin
+
+cups-pk-helper:x:115:122:user for cups-pk-helper service,,,:/home/cups-pk-helper
+
+
+
+:/usr/sbin/nologin
+
+rtkit:x:116:123:RealtimeKit,,,:/proc:/usr/sbin/nologin
+
+whoopsie:x:117:124::/nonexistent:/bin/false
+
+sssd:x:118:125:SSSD system user,,,:/var/lib/sss:/usr/sbin/nologin
+
+speech-dispatcher:x:119:29:Speech Dispatcher,,,:/run/speech-dispatcher:/bin/fals
+
+e
+
+nm-openvpn:x:120:126:NetworkManager OpenVPN,,,:/var/lib/openvpn/chroot:/usr/sbin
+
+/nologin
+
+saned:x:121:128::/var/lib/saned:/usr/sbin/nologin
+
+colord:x:122:129:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/no
+
+login
+
+geoclue:x:123:130::/var/lib/geoclue:/usr/sbin/nologin
+
+pulse:x:124:131:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
+
+gnome-initial-setup:x:125:65534::/run/gnome-initial-setup/:/bin/false
+
+hplip:x:126:7:HPLIP system user,,,:/run/hplip:/bin/false
+
+gdm:x:127:133:Gnome Display Manager:/var/lib/gdm3:/bin/false
+
+vh:x:1000:1000:vh,,,:/home/vh:/bin/bash
+
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+
+sshd:x:128:65534::/run/sshd:/usr/sbin/nologin
+
+user1:x:1001:1001::/home/user1:/bin/bash
+
+vh@vh-VirtualBox:~$ sudo userdel user1 -fr
+
+userdel: почтовый ящик user1 (/var/mail/user1) не найден
+
+vh@vh-VirtualBox:~$ ls /home
+
+vh
+
+************************************************* Задание 2 ******************************************************h@vh-VirtualBox:~$ sudo adduser user2
+
+Добавляется пользователь «user2» ...
+
+Добавляется новая группа «user2» (1001) ...
+
+Добавляется новый пользователь «user2» (1001) в группу «user2» ...
+
+Создаётся домашний каталог «/home/user2» ...
+
+Копирование файлов из «/etc/skel» ...
+
+Новый пароль: 
+
+НЕУДАЧНЫЙ ПАРОЛЬ: Пароль должен содержать не менее 8 символов
+
+Повторите ввод нового пароля: 
+
+passwd: пароль успешно обновлён
+
+Изменение информации о пользователе user2
+
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+
+	Полное имя []: user2
+
+	Номер комнаты []: 
+
+	Рабочий телефон []: 
+
+	Домашний телефон []: 
+
+	Другое []: 
+
+Данная информация корректна? [Y/n] Y
+
+vh@vh-VirtualBox:~$ sudo adduser user3
+
+Добавляется пользователь «user3» ...
+
+Добавляется новая группа «user3» (1002) ...
+
+Добавляется новый пользователь «user3» (1002) в группу «user3» ...
+
+Создаётся домашний каталог «/home/user3» ...
+
+Копирование файлов из «/etc/skel» ...
+
+Новый пароль: 
+
+НЕУДАЧНЫЙ ПАРОЛЬ: Пароль должен содержать не менее 8 символов
+
+Повторите ввод нового пароля: 
+
+passwd: пароль успешно обновлён
+
+Изменение информации о пользователе user3
+
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+
+	Полное имя []: 
+
+	Номер комнаты []: 
+
+	Рабочий телефон []: 
+
+	Домашний телефон []: 
+
+	Другое []: 
+
+Данная информация корректна? [Y/n] Y
+
+vh@vh-VirtualBox:~$ sudo groupadd qwerty
+
+vh@vh-VirtualBox:~$ tail /etc/group
+
+pulse:x:131:
+
+pulse-access:x:132:
+
+gdm:x:133:
+
+lxd:x:134:vh
+
+vh:x:1000:
+
+sambashare:x:135:vh
+
+vboxsf:x:999:
+
+user2:x:1001:
+
+user3:x:1002:
+
+qwerty:x:1003:
+
+vh@vh-VirtualBox:~$ sudo usermod  -aG qwerty user2
+
+vh@vh-VirtualBox:~$ sudo usermod  -aG qwerty user3
+
+vh@vh-VirtualBox:~$ sudo usermod  -aG qwerty vh
+
+h@vh-VirtualBox:~$ tail /etc/group
+
+pulse:x:131:
+
+pulse-access:x:132:
+
+gdm:x:133:
+
+lxd:x:134:vh
+
+vh:x:1000:
+
+sambashare:x:135:vh
+
+vboxsf:x:999:
+
+user2:x:1001:
+
+user3:x:1002:
+
+qwerty:x:1003:user2,user3,vh
+
+vh@vh-VirtualBox:~$ sudo groupadd qwerty2
+
+vh@vh-VirtualBox:~$ sudo usermod  -aG qwerty2 user2
+
+vh@vh-VirtualBox:~$ tail /etc/group
+
+gdm:x:133:
+
+lxd:x:134:vh
+
+vh:x:1000:
+
+sambashare:x:135:vh
+
+vboxsf:x:999:
+
+user2:x:1001:
+
+user3:x:1002:
+
+qwerty:x:1003:user2,user3,vh
+
+qwerty1:x:1004:
+
+qwerty2:x:1005:user2
+
+h@vh-VirtualBox:~$ sudo gpasswd -d user2 qwerty
+
+Удаление пользователя user2 из группы qwerty
+
+vh@vh-VirtualBox:~$ tail /etc/group
+
+gdm:x:133:
+
+lxd:x:134:vh
+
+vh:x:1000:
+
+sambashare:x:135:vh
+
+vboxsf:x:999:
+
+user2:x:1001:
+
+user3:x:1002:
+
+qwerty:x:1003:user3,vh
+
+qwerty1:x:1004:
+
+qwerty2:x:1005:user2
+
+************************************************** Задание 3 ********************************************************
+
+vh@vh-VirtualBox:~$ sudo usermod  -aG sudo user3 
+
+vh@vh-VirtualBox:~$ groups user3
+
+user3 : user3 sudo
+
+vh@vh-VirtualBox:~$ su user3
+
+Пароль: 
+
+user3@vh-VirtualBox:/home/vh$ sudo apt update
+
+[sudo] пароль для user3: 
+
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease
+
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease            
+
+Сущ:4 http://security.ubuntu.com/ubuntu jammy-security InRelease               
+
+Чтение списков пакетов… Готово            
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Все пакеты имеют последние версии.
+
+user3@vh-VirtualBox:/home/vh$ exit
+
+exit
+
+**************************************************** Задание 4 ************************************************
+vh@vh-VirtualBox:~$ sudo visudo
+
+# User privilege specification
+
+root    ALL=(ALL:ALL) ALL
+
+
+
+# Members of the admin group may gain root privileges
+
+%admin ALL=(ALL) ALL
+
+
+
+# Allow members of group sudo to execute any command
+
+%sudo   ALL=(ALL:ALL) ALL
+
+
+
+# See sudoers(5) for more information on "@include" directives:
+
+
+user3 ALL=/usr/sudo apt update
+
+
+vh@vh-VirtualBox:~$ su user3
+
+Пароль: 
+
+user3@vh-VirtualBox:/home/vh$ sudo apt update
+
+[sudo] пароль для user3: 
+
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease
+
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease            
+
+Сущ:4 http://security.ubuntu.com/ubuntu jammy-security InRelease               
+
+Чтение списков пакетов… Готово            
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Все пакеты имеют последние версии.
+
+user3@vh-VirtualBox:/home/vh$ exit
+
+exit

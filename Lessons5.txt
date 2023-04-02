@@ -1,0 +1,300 @@
+********************************************* Задание 1 ***********************************************************
+
+vh@vh-VirtualBox:~$ mkdir lessons5
+
+vh@vh-VirtualBox:~$ cd lessons5
+
+vh@vh-VirtualBox:~/lessons5$ cat > file1
+
+qwerty
+
+qwert1
+
+qwerty2
+
+vh@vh-VirtualBox:~/lessons5$ cat file1
+
+qwerty
+
+qwert1
+
+qwerty2
+
+vh@vh-VirtualBox:~/lessons5$ cp file1 file2
+
+vh@vh-VirtualBox:~/lessons5$ cat file2
+
+qwerty
+
+qwert1
+
+qwerty2
+
+vh@vh-VirtualBox:~/lessons5$ ln -s file1 file3
+
+vh@vh-VirtualBox:~/lessons5$ ln file1 file4
+
+vh@vh-VirtualBox:~/lessons5$ ls -la
+итого 20
+drwxrwxr-x  2 vh vh 4096 окт 23 22:09 .
+drwxr-x--- 20 vh vh 4096 окт 23 22:00 ..
+-rw-rw-r--  2 vh vh   22 окт 23 22:02 file1
+-rw-rw-r--  1 vh vh   22 окт 23 22:04 file2
+lrwxrwxrwx  1 vh vh    5 окт 23 22:08 file3 -> file1
+-rw-rw-r--  2 vh vh   22 окт 23 22:02 file4
+
+vh@vh-VirtualBox:~/lessons5$ ls -il
+итого 12
+270191 -rw-rw-r-- 2 vh vh 22 окт 23 22:02 file1
+264254 -rw-rw-r-- 1 vh vh 22 окт 23 22:04 file2
+266422 lrwxrwxrwx 1 vh vh  5 окт 23 22:08 file3 -> file1
+270191 -rw-rw-r-- 2 vh vh 22 окт 23 22:02 file4
+
+vh@vh-VirtualBox:~/lessons5$ rm file1
+vh@vh-VirtualBox:~/lessons5$ ls -la
+
+итого 16
+drwxrwxr-x  2 vh vh 4096 окт 23 22:12 .
+drwxr-x--- 20 vh vh 4096 окт 23 22:00 ..
+-rw-rw-r--  1 vh vh   22 окт 23 22:04 file2
+lrwxrwxrwx  1 vh vh    5 окт 23 22:08 file3 -> file1
+-rw-rw-r--  1 vh vh   22 окт 23 22:02 file4
+
+file2 ---  без изменений
+
+file3 -> file1 не возможно прочитать
+
+file4 ---  без изменений
+
+vh@vh-VirtualBox:~/lessons5$ cat file2
+
+qwerty
+
+qwert1
+
+qwerty2
+
+vh@vh-VirtualBox:~/lessons5$ cat file3
+
+cat: file3: Нет такого файла или каталога
+
+vh@vh-VirtualBox:~/lessons5$ cat file4
+
+qwerty
+
+qwert1
+
+qwerty2
+
+*********************************************************** Задание 2 ***************************************************************
+
+h@vh-VirtualBox:~/lessons5$ mv file2 new_file2
+vh@vh-VirtualBox:~/lessons5$ mv file3 new_file3
+vh@vh-VirtualBox:~/lessons5$ mv file4 new_file4
+vh@vh-VirtualBox:~/lessons5$ ln -s new_file2 file5
+vh@vh-VirtualBox:~/lessons5$ ls -l
+итого 8
+lrwxrwxrwx 1 vh vh  9 окт 23 22:24 file5 -> new_file2
+-rw-rw-r-- 1 vh vh 22 окт 23 22:04 new_file2
+lrwxrwxrwx 1 vh vh  5 окт 23 22:08 new_file3 -> file1
+-rw-rw-r-- 1 vh vh 22 окт 23 22:02 new_file4
+vh@vh-VirtualBox:~/lessons5$ mv 
+file5      new_file2  new_file3  new_file4  
+vh@vh-VirtualBox:~/lessons5$ mv 
+file5      new_file2  new_file3  new_file4  
+vh@vh-VirtualBox:~/lessons5$ mv file5 lessons4
+vh@vh-VirtualBox:~/lessons5$ mv new_file3 lessons4
+vh@vh-VirtualBox:~/lessons5$ mv new_file4 lessons4
+vh@vh-VirtualBox:~/lessons5$
+
+********************************************************** Задание 3 ****************************************************************
+
+vh@vh-VirtualBox:~/lessons5$ touch profile1
+
+vh@vh-VirtualBox:~/lessons5$ touch profile2
+
+vh@vh-VirtualBox:~/lessons5$ ls -la
+
+итого 16
+
+drwxrwxr-x  2 vh vh 4096 окт 23 22:38 .
+
+drwxr-x--- 20 vh vh 4096 окт 23 22:00 ..
+
+-rw-rw-r--  1 vh vh   22 окт 23 22:02 lessons4
+
+-rw-rw-r--  1 vh vh   22 окт 23 22:04 new_file2
+
+-rw-rw-r--  1 vh vh    0 окт 23 22:38 profile1
+
+-rw-rw-r--  1 vh vh    0 окт 23 22:38 profile2
+
+vh@vh-VirtualBox:~/lessons5$ chmod 664 profile1
+
+vh@vh-VirtualBox:~/lessons5$ chmod 600 profile2
+
+vh@vh-VirtualBox:~/lessons5$ ls -la
+
+итого 16
+
+drwxrwxr-x  2 vh vh 4096 окт 23 22:38 .
+
+drwxr-x--- 20 vh vh 4096 окт 23 22:00 ..
+
+-rw-rw-r--  1 vh vh   22 окт 23 22:02 lessons4
+
+-rw-rw-r--  1 vh vh   22 окт 23 22:04 new_file2
+
+-rw-rw-r--  1 vh vh    0 окт 23 22:38 profile1
+
+-rw-------  1 vh vh    0 окт 23 22:38 profile2
+
+vh@vh-VirtualBox:~/lessons5$ touch profile3
+
+vh@vh-VirtualBox:~/lessons5$ touch profile4
+
+vh@vh-VirtualBox:~/lessons5$ chmod ug=rw,o=r profile3
+
+vh@vh-VirtualBox:~/lessons5$ chmod u+rw,go-rwx profile4
+
+vh@vh-VirtualBox:~/lessons5$ ls -la
+
+итого 16
+
+drwxrwxr-x  2 vh vh 4096 окт 23 22:47 .
+
+drwxr-x--- 20 vh vh 4096 окт 23 22:00 ..
+
+-rw-rw-r--  1 vh vh   22 окт 23 22:02 lessons4
+
+-rw-rw-r--  1 vh vh   22 окт 23 22:04 new_file2
+
+-rw-rw-r--  1 vh vh    0 окт 23 22:38 profile1
+
+-rw-------  1 vh vh    0 окт 23 22:38 profile2
+
+-rw-rw-r--  1 vh vh    0 окт 23 22:47 profile3
+
+-rw-------  1 vh vh    0 окт 23 22:47 profile4
+
+************************************************************** Задание 4 ********************************************************
+
+vh@vh-VirtualBox:~/lessons5$ sudo groupadd developer
+
+vh@vh-VirtualBox:~/lessons5$ sudo useradd -G developer new_user1
+
+vh@vh-VirtualBox:~/lessons5$ sudo useradd -G developer new_user2
+
+vh@vh-VirtualBox:~/lessons5$ mkdir developer
+
+vh@vh-VirtualBox:~/lessons5$ sudo chgrp developer ~/lessons5/developer/
+
+vh@vh-VirtualBox:~/lessons5$ chmod 775 ~/lessons5/developer/
+
+vh@vh-VirtualBox:~/lessons5$ sudo chmod g+s ~/lessons5/developer/
+
+vh@vh-VirtualBox:~/lessons5$ ls -la
+
+итого 20
+
+drwxrwxr-x  3 vh vh        4096 окт 23 23:03 .
+
+drwxr-x--- 20 vh vh        4096 окт 23 22:00 ..
+
+drwxrwsr-x  2 vh developer 4096 окт 23 23:03 developer
+
+-rw-rw-r--  1 vh vh          22 окт 23 22:02 lessons4
+
+-rw-rw-r--  1 vh vh          22 окт 23 22:04 new_file2
+
+-rw-rw-r--  1 vh vh           0 окт 23 22:38 profile1
+
+-rw-------  1 vh vh           0 окт 23 22:38 profile2
+
+-rw-rw-r--  1 vh vh           0 окт 23 22:47 profile3
+
+-rw-------  1 vh vh           0 окт 23 22:47 profile4
+
+*************************************************************** Задание 5 **************************************************
+
+h@vh-VirtualBox:~/lessons5$ mkdir ~/lessons5/developer/new_dir
+
+vh@vh-VirtualBox:~/lessons5$ chmod 1777 ~/lessons5/developer/new_dir/
+
+vh@vh-VirtualBox:~/lessons5$ ls -la
+
+итого 20
+
+drwxrwxr-x  3 vh vh        4096 окт 23 23:03 .
+
+drwxr-x--- 20 vh vh        4096 окт 23 22:00 ..
+
+drwxrwsr-x  3 vh developer 4096 окт 23 23:13 developer
+
+-rw-rw-r--  1 vh vh          22 окт 23 22:02 lessons4
+
+-rw-rw-r--  1 vh vh          22 окт 23 22:04 new_file2
+
+-rw-rw-r--  1 vh vh           0 окт 23 22:38 profile1
+
+-rw-------  1 vh vh           0 окт 23 22:38 profile2
+
+-rw-rw-r--  1 vh vh           0 окт 23 22:47 profile3
+
+-rw-------  1 vh vh           0 окт 23 22:47 profile4
+
+********************************************************** Задание 6 *********************************************************8
+
+vh@vh-VirtualBox:~/lessons5$ mkdir new_dir1
+
+vh@vh-VirtualBox:~/lessons5$ touch ./new_dir1/file1
+
+vh@vh-VirtualBox:~/lessons5$ touch ./new_dir1/file2
+
+vh@vh-VirtualBox:~/lessons5$ touch ./new_dir1/file3
+
+vh@vh-VirtualBox:~/lessons5$ cd new_dir1
+
+vh@vh-VirtualBox:~/lessons5/new_dir1$ ls -ia
+
+270189 .  270187 ..  270223 file1  270229 file2  270231 file3
+
+vh@vh-VirtualBox:~/lessons5/new_dir1$ cd ..
+
+vh@vh-VirtualBox:~/lessons5$ chmod 331 ./new_dir1/
+
+vh@vh-VirtualBox:~/lessons5$ ls -la
+
+итого 24
+
+drwxrwxr-x  4 vh vh        4096 окт 23 23:16 .
+
+drwxr-x--- 20 vh vh        4096 окт 23 22:00 ..
+
+drwxrwsr-x  3 vh developer 4096 окт 23 23:13 developer
+
+-rw-rw-r--  1 vh vh          22 окт 23 22:02 lessons4
+
+d-wx-wx--x  2 vh vh        4096 окт 23 23:17 new_dir1
+
+-rw-rw-r--  1 vh vh          22 окт 23 22:04 new_file2
+
+-rw-rw-r--  1 vh vh           0 окт 23 22:38 profile1
+
+-rw-------  1 vh vh           0 окт 23 22:38 profile2
+
+-rw-rw-r--  1 vh vh           0 окт 23 22:47 profile3
+
+-rw-------  1 vh vh           0 окт 23 22:47 profile4
+
+
+vh@vh-VirtualBox:~/lessons5$ ls -la ./new_dir1/
+
+ls: невозможно открыть каталог './new_dir1/': Отказано в доступе
+
+vh@vh-VirtualBox:~/lessons5$ cat ./new_dir1/file1
+
+vh@vh-VirtualBox:~/lessons5$ 
+
+
+

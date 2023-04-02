@@ -1,0 +1,329 @@
+********************************************* Задание 1 ***********************************************************
+
+vh@vh-VirtualBox:~$ mkdir lessons7
+vh@vh-VirtualBox:~$ cd lessons7
+vh@vh-VirtualBox:~/lessons7$ sudo wget https://nginx.org/keys/nginx_signing.key
+[sudo] пароль для vh: 
+--2022-10-28 13:57:20--  https://nginx.org/keys/nginx_signing.key
+Распознаётся nginx.org (nginx.org)… 52.58.199.22, 3.125.197.172, 2a05:d014:edb:5704::6, ...
+Подключение к nginx.org (nginx.org)|52.58.199.22|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 1561 (1,5K) [application/octet-stream]
+Сохранение в: ‘nginx_signing.key’
+
+nginx_signing.key   100%[===================>]   1,52K  --.-KB/s    за 0s      
+
+2022-10-28 13:57:21 (546 MB/s) - ‘nginx_signing.key’ сохранён [1561/1561]
+
+vh@vh-VirtualBox:~/lessons7$ sudo apt-key add nginx_signing.key
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+OK
+vh@vh-VirtualBox:~/lessons7$ sudo apt update
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease            
+Сущ:4 http://security.ubuntu.com/ubuntu jammy-security InRelease               
+Чтение списков пакетов… Готово                                   
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+Может быть обновлено 19 пакетов. Запустите «apt list --upgradable» для их показа.
+vh@vh-VirtualBox:~/lessons7$ sudo apt upgrade
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+Расчёт обновлений… Готово
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  libflashrom1 libftdi1-2 linux-headers-5.15.0-48
+  linux-headers-5.15.0-48-generic linux-image-5.15.0-48-generic
+  linux-modules-5.15.0-48-generic linux-modules-extra-5.15.0-48-generic
+Для их удаления используйте «sudo apt autoremove».
+Try Ubuntu Pro beta with a free personal subscription on up to 5 machines.
+Learn more at https://ubuntu.com/pro
+Следующие пакеты будут оставлены в неизменном виде:
+  grub-efi-amd64-bin grub-efi-amd64-signed snapd
+Следующие пакеты будут обновлены:
+  alsa-ucm-conf dbus dbus-user-session fwupd gdb libcurl3-gnutls libcurl4
+  libdbus-1-3 libfwupd2 libfwupdplugin5 libpam-sss tzdata xserver-common
+  xserver-xephyr xserver-xorg-core xserver-xorg-legacy
+Обновлено 16 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 3 пакетов не обновлено.
+5 standard LTS security updates
+Необходимо скачать 10,7 MB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 68,6 kB.
+Хотите продолжить? [Д/н] Д
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 dbus amd64 1.12.20-2ubuntu4.1 [158 kB]
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libdbus-1-3 amd64 1.12.20-2ubuntu4.1 [189 kB]
+Пол:3 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 tzdata all 2022e-0ubuntu0.22.04.0 [335 kB]
+Пол:4 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 alsa-ucm-conf all 1.2.6.3-1ubuntu1.1 [41,1 kB]
+Пол:5 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 dbus-user-session amd64 1.12.20-2ubuntu4.1 [9 442 B]
+Пол:6 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 fwupd amd64 1.7.9-1~22.04.1 [2 561 kB]
+Пол:7 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libfwupdplugin5 amd64 1.7.9-1~22.04.1 [192 kB]
+Пол:8 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcurl3-gnutls amd64 7.81.0-1ubuntu1.6 [283 kB]
+Пол:9 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libfwupd2 amd64 1.7.9-1~22.04.1 [105 kB]
+Пол:10 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 gdb amd64 12.1-0ubuntu1~22.04 [3 919 kB]
+Пол:11 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcurl4 amd64 7.81.0-1ubuntu1.6 [290 kB]
+Пол:12 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 xserver-common all 2:21.1.3-2ubuntu2.2 [27,6 kB]
+Пол:13 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 xserver-xephyr amd64 2:21.1.3-2ubuntu2.2 [1 010 kB]
+Пол:14 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 xserver-xorg-legacy amd64 2:21.1.3-2ubuntu2.2 [34,3 kB]
+Пол:15 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 xserver-xorg-core amd64 2:21.1.3-2ubuntu2.2 [1 475 kB]
+Пол:16 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpam-sss amd64 2.6.3-1ubuntu3.2 [40,5 kB]
+Получено 10,7 MB за 2с (6 750 kB/s)        
+Предварительная настройка пакетов …
+setting xserver-xorg-legacy/xwrapper/allowed_users from configuration file
+(Чтение базы данных … на данный момент установлено 244900 файлов и каталогов.)
+Подготовка к распаковке …/00-dbus_1.12.20-2ubuntu4.1_amd64.deb …
+Распаковывается dbus (1.12.20-2ubuntu4.1) на замену (1.12.20-2ubuntu4) …
+Подготовка к распаковке …/01-libdbus-1-3_1.12.20-2ubuntu4.1_amd64.deb …
+Распаковывается libdbus-1-3:amd64 (1.12.20-2ubuntu4.1) на замену (1.12.20-2ubunt
+u4) …
+Подготовка к распаковке …/02-tzdata_2022e-0ubuntu0.22.04.0_all.deb …
+Распаковывается tzdata (2022e-0ubuntu0.22.04.0) на замену (2022c-0ubuntu0.22.04.
+0) …
+Подготовка к распаковке …/03-alsa-ucm-conf_1.2.6.3-1ubuntu1.1_all.deb …
+Распаковывается alsa-ucm-conf (1.2.6.3-1ubuntu1.1) на замену (1.2.6.3-1ubuntu1) 
+…
+Подготовка к распаковке …/04-dbus-user-session_1.12.20-2ubuntu4.1_amd64.deb …
+Распаковывается dbus-user-session (1.12.20-2ubuntu4.1) на замену (1.12.20-2ubunt
+u4) …
+Подготовка к распаковке …/05-fwupd_1.7.9-1~22.04.1_amd64.deb …
+Распаковывается fwupd (1.7.9-1~22.04.1) на замену (1.7.5-3) …
+Подготовка к распаковке …/06-libfwupdplugin5_1.7.9-1~22.04.1_amd64.deb …
+Распаковывается libfwupdplugin5:amd64 (1.7.9-1~22.04.1) на замену (1.7.5-3) …
+Подготовка к распаковке …/07-libcurl3-gnutls_7.81.0-1ubuntu1.6_amd64.deb …
+Распаковывается libcurl3-gnutls:amd64 (7.81.0-1ubuntu1.6) на замену (7.81.0-1ubu
+ntu1.4) …
+Подготовка к распаковке …/08-libfwupd2_1.7.9-1~22.04.1_amd64.deb …
+Распаковывается libfwupd2:amd64 (1.7.9-1~22.04.1) на замену (1.7.5-3) …
+Подготовка к распаковке …/09-gdb_12.1-0ubuntu1~22.04_amd64.deb …
+Распаковывается gdb (12.1-0ubuntu1~22.04) на замену (12.0.90-0ubuntu1) …
+Подготовка к распаковке …/10-libcurl4_7.81.0-1ubuntu1.6_amd64.deb …
+Распаковывается libcurl4:amd64 (7.81.0-1ubuntu1.6) на замену (7.81.0-1ubuntu1.4)
+ …
+Подготовка к распаковке …/11-xserver-common_2%3a21.1.3-2ubuntu2.2_all.deb …
+Распаковывается xserver-common (2:21.1.3-2ubuntu2.2) на замену (2:21.1.3-2ubuntu
+2.1) …
+Подготовка к распаковке …/12-xserver-xephyr_2%3a21.1.3-2ubuntu2.2_amd64.deb …
+Распаковывается xserver-xephyr (2:21.1.3-2ubuntu2.2) на замену (2:21.1.3-2ubuntu
+2.1) …
+Подготовка к распаковке …/13-xserver-xorg-legacy_2%3a21.1.3-2ubuntu2.2_amd64.deb
+ …
+Распаковывается xserver-xorg-legacy (2:21.1.3-2ubuntu2.2) на замену (2:21.1.3-2u
+buntu2.1) …
+Подготовка к распаковке …/14-xserver-xorg-core_2%3a21.1.3-2ubuntu2.2_amd64.deb …
+Распаковывается xserver-xorg-core (2:21.1.3-2ubuntu2.2) на замену (2:21.1.3-2ubu
+ntu2.1) …
+Подготовка к распаковке …/15-libpam-sss_2.6.3-1ubuntu3.2_amd64.deb …
+Распаковывается libpam-sss:amd64 (2.6.3-1ubuntu3.2) на замену (2.6.3-1ubuntu3.1)
+ …
+Настраивается пакет alsa-ucm-conf (1.2.6.3-1ubuntu1.1) …
+Настраивается пакет libcurl3-gnutls:amd64 (7.81.0-1ubuntu1.6) …
+Настраивается пакет tzdata (2022e-0ubuntu0.22.04.0) …
+
+Current default time zone: 'Europe/Moscow'
+Local time is now:      Fri Oct 28 14:02:13 MSK 2022.
+Universal Time is now:  Fri Oct 28 11:02:13 UTC 2022.
+Run 'dpkg-reconfigure tzdata' if you wish to change it.
+
+Настраивается пакет gdb (12.1-0ubuntu1~22.04) …
+Настраивается пакет libdbus-1-3:amd64 (1.12.20-2ubuntu4.1) …
+Настраивается пакет dbus (1.12.20-2ubuntu4.1) …
+A reboot is required to replace the running dbus-daemon.
+Please reboot the system when convenient.
+Настраивается пакет libcurl4:amd64 (7.81.0-1ubuntu1.6) …
+Настраивается пакет xserver-common (2:21.1.3-2ubuntu2.2) …
+Настраивается пакет xserver-xorg-legacy (2:21.1.3-2ubuntu2.2) …
+setting xserver-xorg-legacy/xwrapper/allowed_users from configuration file
+Настраивается пакет libpam-sss:amd64 (2.6.3-1ubuntu3.2) …
+Настраивается пакет libfwupd2:amd64 (1.7.9-1~22.04.1) …
+Настраивается пакет xserver-xorg-core (2:21.1.3-2ubuntu2.2) …
+Настраивается пакет dbus-user-session (1.12.20-2ubuntu4.1) …
+Настраивается пакет xserver-xephyr (2:21.1.3-2ubuntu2.2) …
+Настраивается пакет libfwupdplugin5:amd64 (1.7.9-1~22.04.1) …
+Настраивается пакет fwupd (1.7.9-1~22.04.1) …
+Устанавливается новая версия файла настройки /etc/fwupd/redfish.conf …
+fwupd-offline-update.service is a disabled or a static unit not running, not sta
+rting it.
+fwupd-refresh.service is a disabled or a static unit not running, not starting i
+t.
+fwupd.service is a disabled or a static unit not running, not starting it.
+Обрабатываются триггеры для libc-bin (2.35-0ubuntu3.1) …
+Обрабатываются триггеры для man-db (2.10.2-1) …
+Обрабатываются триггеры для hicolor-icon-theme (0.17-2) …
+
+vh@vh-VirtualBox:~/lessons7$ sudo apt install -y nginx
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  libflashrom1 libftdi1-2 linux-headers-5.15.0-48
+  linux-headers-5.15.0-48-generic linux-image-5.15.0-48-generic
+  linux-modules-5.15.0-48-generic linux-modules-extra-5.15.0-48-generic
+Для их удаления используйте «sudo apt autoremove».
+Будут установлены следующие дополнительные пакеты:
+  libnginx-mod-http-geoip2 libnginx-mod-http-image-filter
+  libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream
+  libnginx-mod-stream-geoip2 nginx-common nginx-core
+Предлагаемые пакеты:
+  fcgiwrap nginx-doc
+Следующие НОВЫЕ пакеты будут установлены:
+  libnginx-mod-http-geoip2 libnginx-mod-http-image-filter
+  libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream
+  libnginx-mod-stream-geoip2 nginx nginx-common nginx-core
+Обновлено 0 пакетов, установлено 9 новых пакетов, для удаления отмечено 0 пакетов, и 3 пакетов не обновлено.
+Необходимо скачать 696 kB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 2 395 kB.
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 nginx-common all 1.18.0-6ubuntu14.2 [40,0 kB]
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-http-geoip2 amd64 1.18.0-6ubuntu14.2 [11,8 kB]
+Пол:3 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-http-image-filter amd64 1.18.0-6ubuntu14.2 [15,4 kB]
+Пол:4 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-http-xslt-filter amd64 1.18.0-6ubuntu14.2 [13,7 kB]
+Пол:5 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-mail amd64 1.18.0-6ubuntu14.2 [45,6 kB]
+Пол:6 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-stream amd64 1.18.0-6ubuntu14.2 [72,7 kB]
+Пол:7 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-stream-geoip2 amd64 1.18.0-6ubuntu14.2 [10,1 kB]
+Пол:8 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 nginx-core amd64 1.18.0-6ubuntu14.2 [482 kB]
+Пол:9 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 nginx amd64 1.18.0-6ubuntu14.2 [3 876 B]
+Получено 696 kB за 0с (1 908 kB/s)         
+Предварительная настройка пакетов …
+Выбор ранее не выбранного пакета nginx-common.
+(Чтение базы данных … на данный момент установлено 244902 файла и каталога.)
+Подготовка к распаковке …/0-nginx-common_1.18.0-6ubuntu14.2_all.deb …
+Распаковывается nginx-common (1.18.0-6ubuntu14.2) …
+Выбор ранее не выбранного пакета libnginx-mod-http-geoip2.
+Подготовка к распаковке …/1-libnginx-mod-http-geoip2_1.18.0-6ubuntu14.2_amd64.de
+b …
+Распаковывается libnginx-mod-http-geoip2 (1.18.0-6ubuntu14.2) …
+Выбор ранее не выбранного пакета libnginx-mod-http-image-filter.
+Подготовка к распаковке …/2-libnginx-mod-http-image-filter_1.18.0-6ubuntu14.2_am
+d64.deb …
+Распаковывается libnginx-mod-http-image-filter (1.18.0-6ubuntu14.2) …
+Выбор ранее не выбранного пакета libnginx-mod-http-xslt-filter.
+Подготовка к распаковке …/3-libnginx-mod-http-xslt-filter_1.18.0-6ubuntu14.2_amd
+64.deb …
+Распаковывается libnginx-mod-http-xslt-filter (1.18.0-6ubuntu14.2) …
+Выбор ранее не выбранного пакета libnginx-mod-mail.
+Подготовка к распаковке …/4-libnginx-mod-mail_1.18.0-6ubuntu14.2_amd64.deb …
+Распаковывается libnginx-mod-mail (1.18.0-6ubuntu14.2) …
+Выбор ранее не выбранного пакета libnginx-mod-stream.
+Подготовка к распаковке …/5-libnginx-mod-stream_1.18.0-6ubuntu14.2_amd64.deb …
+Распаковывается libnginx-mod-stream (1.18.0-6ubuntu14.2) …
+Выбор ранее не выбранного пакета libnginx-mod-stream-geoip2.
+Подготовка к распаковке …/6-libnginx-mod-stream-geoip2_1.18.0-6ubuntu14.2_amd64.
+deb …
+Распаковывается libnginx-mod-stream-geoip2 (1.18.0-6ubuntu14.2) …
+Выбор ранее не выбранного пакета nginx-core.
+Подготовка к распаковке …/7-nginx-core_1.18.0-6ubuntu14.2_amd64.deb …
+Распаковывается nginx-core (1.18.0-6ubuntu14.2) …
+Выбор ранее не выбранного пакета nginx.
+Подготовка к распаковке …/8-nginx_1.18.0-6ubuntu14.2_amd64.deb …
+Распаковывается nginx (1.18.0-6ubuntu14.2) …
+Настраивается пакет nginx-common (1.18.0-6ubuntu14.2) …
+Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /lib
+/systemd/system/nginx.service.
+Настраивается пакет libnginx-mod-http-xslt-filter (1.18.0-6ubuntu14.2) …
+Настраивается пакет libnginx-mod-http-geoip2 (1.18.0-6ubuntu14.2) …
+Настраивается пакет libnginx-mod-mail (1.18.0-6ubuntu14.2) …
+Настраивается пакет libnginx-mod-http-image-filter (1.18.0-6ubuntu14.2) …
+Настраивается пакет libnginx-mod-stream (1.18.0-6ubuntu14.2) …
+Настраивается пакет libnginx-mod-stream-geoip2 (1.18.0-6ubuntu14.2) …
+Настраивается пакет nginx-core (1.18.0-6ubuntu14.2) …
+ * Upgrading binary nginx                                                [ OK ] 
+Настраивается пакет nginx (1.18.0-6ubuntu14.2) …
+Обрабатываются триггеры для man-db (2.10.2-1) …
+Обрабатываются триггеры для ufw (0.36.1-4build1) …
+vh@vh-VirtualBox:~/lessons7$ sudo systemctl status nginx.service
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset:>
+     Active: active (running) since Fri 2022-10-28 14:05:43 MSK; 3min 0s ago
+       Docs: man:nginx(8)
+    Process: 5274 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_proce>
+    Process: 5275 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (c>
+   Main PID: 5366 (nginx)
+      Tasks: 3 (limit: 3785)
+     Memory: 3.8M
+        CPU: 28ms
+     CGroup: /system.slice/nginx.service
+             ├─5366 "nginx: master process /usr/sbin/nginx -g daemon on; master>
+             ├─5369 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "">
+             └─5370 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "">
+
+окт 28 14:05:43 vh-VirtualBox systemd[1]: Starting A high performance web serve>
+окт 28 14:05:43 vh-VirtualBox systemd[1]: Started A high performance web server>
+lines 1-17/17 (END)
+
+vh@vh-VirtualBox:~$ sudo systemctl stop nginx.service
+
+[sudo] пароль для vh: 
+
+vh@vh-VirtualBox:~$ sudo dpkg -r nginx
+
+(Чтение базы данных … на данный момент установлено 209504 файла и каталога.)
+
+Удаляется nginx (1.18.0-6ubuntu14.2) …
+
+
+*********************************************************** Задание 2 *******************************************
+VirtualBox:~$ snap find tetris
+Название              Версия    Издатель      Примечание  Описание
+tetris                0.1.2     jogeanmcf     -           Tetris Game
+tetris-in-racket      1.2-2     brunonova     -           Tetris clone developed in Racket
+tetris-ever           20.21.11  joker2770     -           A simple tetris game is written with C, and is rendered by SDL2.
+tetris-ever-mixer     20.21.12  joker2770     -           A simple tetris game is written with C, and is rendered by SDL2.
+tetris-thefenriswolf  0.1.4.1   fenriswolf    -           A terminal interface for Tetris
+quadrapassel          40.2      canonical✓    -           Fit falling blocks together
+vitetris              0.57      bladernr      -           Console based version of Tetris
+fairtris              3.0.0.4   chronoscz     -           A fair implementation of Classic Tetris® video game.
+awesome-pygames       20.21.12  joker2770     -           Games by Al Sweigart. Manual at inventwithpython.com/pygame.
+ctris                 1.1       mitchel0022   -           An open source terminal based Tetris game
+stmg                  20210117  efanomars     -           Revisited classic games collection
+pmtris                1.0       kz6fittycent  -           Poor Man's Tetris Clone
+free-games-webapp     0.9.8     mauringo      -           A simple Application that provides some we-based static games.
+simtetris             1         piotr132      -           Simple version of tetris game
+vh@vh-VirtualBox:~$ sudo snap install tetris-in-racket
+tetris-in-racket 1.2-2 от Bruno Nova (brunonova) установлен
+vh@vh-VirtualBox:~$ tetris-in-racket
+
+
+************************************************************** Задание 3 **************************************
+
+vh@vh-VirtualBox:~$ sudo ufw status
+
+Состояние: неактивен
+
+vh@vh-VirtualBox:~$ sudo ufw allow 22
+
+Правила обновлены
+
+Правила обновлены (v6)
+
+vh@vh-VirtualBox:~$ sudo ufw allow 80
+
+Правила обновлены
+
+Правила обновлены (v6)
+
+vh@vh-VirtualBox:~$ sudo ufw enable
+
+Межсетевой экран включён и будет запускаться при запуске системы
+
+vh@vh-VirtualBox:~$ sudo ufw status
+
+Состояние: активен
+
+
+В                          Действие    Из
+
+-                          --------    --
+
+22                         ALLOW       Anywhere                  
+
+80                         ALLOW       Anywhere                  
+
+22 (v6)                    ALLOW       Anywhere (v6)             
+
+80 (v6)                    ALLOW       Anywhere (v6)             
+
+
+******************************************************** Задание 4 ********************************************
+
+vh@vh-VirtualBox:~$ sudo iptables -A PREROUTING -t nat -p tcp --dport 80 -j REDIRECT --to-ports 8080
+
+
+

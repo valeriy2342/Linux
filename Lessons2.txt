@@ -1,0 +1,345 @@
+************************************************** 1 задание ***********************************************
+
+vh@vh-VirtualBox:~$ pwd
+
+/home/vh
+
+vh@vh-VirtualBox:~$ mkdir lesson2
+
+vh@vh-VirtualBox:~$ cd lesson2/
+
+vh@vh-VirtualBox:~/lesson2$ mkdir students mentors
+
+vh@vh-VirtualBox:~/lesson2$ ll
+
+итого 16
+
+drwxrwxr-x  4 vh vh 4096 окт  7 22:05 ./
+
+drwxr-x--- 17 vh vh 4096 окт  7 22:03 ../
+
+drwxrwxr-x  2 vh vh 4096 окт  7 22:05 mentors/
+
+drwxrwxr-x  2 vh vh 4096 окт  7 22:05 students/
+
+vh@vh-VirtualBox:~/lesson2$ touch students/students_list.txt
+
+vh@vh-VirtualBox:~/lesson2$ cd students/
+
+vh@vh-VirtualBox:~/lesson2/students$ ll
+
+итого 8
+
+drwxrwxr-x 2 vh vh 4096 окт  7 22:07 ./
+
+drwxrwxr-x 4 vh vh 4096 окт  7 22:05 ../
+
+-rw-rw-r-- 1 vh vh    0 окт  7 22:07 students_list.txt
+
+vh@vh-VirtualBox:~/lesson2/students$ cd ..
+
+vh@vh-VirtualBox:~/lesson2$ touch mentors/mentors_list.txt
+
+**************************************************** 2 Задание ******************************************************
+
+vh@vh-VirtualBox:~/lesson2$ nano students/students_list.txt
+
+vh@vh-VirtualBox:~/lesson2$ more students/students_list.txt 
+
+Роман Шевцов
+Ричард Янкевич
+Игнатьева Татьяна
+Алексей Митягин
+Михаил Кудрявцев
+Станислав Гайворонский
+Владимир Суркин
+Мирослава Шаршакова
+Виктор Новоселов
+Алексей Сергеев
+Николай Огнев
+Гумен Иван
+Денисенко Антон
+Людмила Цибарева
+Вероника Сафонова
+Надира
+Юлия Кокорева
+Artyom Zarembovsky
+Дмитрий
+Екатерина Юнтунен
+Андрей Ширинкин
+Ильнар Мухаметдинов
+Данил Бакумченко
+Оксана Дубик
+Anara Omuralieva
+Георгий Шучалин
+Рустам Сабиров
+Александра Быкова
+Станислав Форинко
+Дмитрий Деменев
+Иван Будаев
+Егор Кузнецов
+
+vh@vh-VirtualBox:~/lesson2$ nano mentors/mentors_list.txt 
+
+vh@vh-VirtualBox:~/lesson2$ more mentors/mentors_list.txt 
+
+1.Иванов 
+
+2.Петров 
+
+3.Сидоров
+
+******************************************************* 3 Задание ***********************************************
+
+vh@vh-VirtualBox:~/lesson2$ mv mentors/mentors_list.txt students/
+
+vh@vh-VirtualBox:~/lesson2$ cd students/
+
+vh@vh-VirtualBox:~/lesson2/students$ ll
+
+итого 16
+
+drwxrwxr-x 2 vh vh 4096 окт  7 22:18 ./
+
+drwxrwxr-x 4 vh vh 4096 окт  7 22:05 ../
+
+-rw-rw-r-- 1 vh vh   49 окт  7 22:16 mentors_list.txt
+
+-rw-rw-r-- 1 vh vh  959 окт  7 22:12 students_list.txt
+
+****************************************************** 4 Задание *****************************************************
+
+vh@vh-VirtualBox:~/lesson2/students$ cd ..
+
+vh@vh-VirtualBox:~/lesson2$ rm -r mentors/
+
+vh@vh-VirtualBox:~/lesson2$ ll
+
+итого 12
+
+drwxrwxr-x  3 vh vh 4096 окт  7 22:21 ./
+
+drwxr-x--- 17 vh vh 4096 окт  7 22:03 ../
+
+drwxrwxr-x  2 vh vh 4096 окт  7 22:18 students/
+
+******************************************************** 5 задание ***************************************************
+
+vh@vh-VirtualBox:~/lesson2$ mv students students_and_mentors
+
+vh@vh-VirtualBox:~/lesson2$ ll
+
+итого 12
+
+drwxrwxr-x  3 vh vh 4096 окт  7 22:22 ./
+
+drwxr-x--- 17 vh vh 4096 окт  7 22:03 ../
+
+drwxrwxr-x  2 vh vh 4096 окт  7 22:18 students_and_mentors/
+
+********************************************************* 6 Задание *************************************************
+
+vh@vh-VirtualBox:~/lesson2$ rm -r students_and_mentors/
+
+vh@vh-VirtualBox:~/lesson2$ ll
+
+итого 12
+
+drwxrwxr-x  3 vh vh 4096 окт  7 22:34 ./
+
+drwxr-x--- 17 vh vh 4096 окт  7 22:03 ../
+
+vh@vh-VirtualBox:~/lesson2$ 
+
+
+********************************************************** 7 Задание *************************************************
+vh@vh-VirtualBox:~$ sudo apt install openssh-server -y
+
+[sudo] пароль для vh: 
+
+Чтение списков пакетов… Готово
+
+Построение дерева зависимостей… Готово
+
+Чтение информации о состоянии… Готово         
+
+Уже установлен пакет openssh-server самой новой версии (1:8.9p1-3).
+
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 0 пакетов не обновлено.
+
+vh@vh-VirtualBox:~$ sudo systemctl enable ssh
+
+Synchronizing state of ssh.service with SysV service script with /lib/systemd/systemd-sysv-install.
+
+Executing: /lib/systemd/systemd-sysv-install enable ssh
+
+vh@vh-VirtualBox:~$ sudo systemctl start ssh
+
+vh@vh-VirtualBox:~$ systemctl status sshd
+
+● ssh.service - OpenBSD Secure Shell server
+
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+
+     Active: active (running) since Sat 2022-10-08 20:57:07 MSK; 41min ago
+
+       Docs: man:sshd(8)
+
+             man:sshd_config(5)
+
+   Main PID: 747 (sshd)
+
+      Tasks: 1 (limit: 3785)
+
+     Memory: 3.6M
+
+        CPU: 30ms
+
+     CGroup: /system.slice/ssh.service
+
+             └─747 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+
+
+окт 08 20:57:07 vh-VirtualBox systemd[1]: Starting OpenBSD Secure Shell server...
+
+окт 08 20:57:07 vh-VirtualBox sshd[747]: Server listening on 0.0.0.0 port 22.
+
+окт 08 20:57:07 vh-VirtualBox sshd[747]: Server listening on :: port 22.
+
+окт 08 20:57:07 vh-VirtualBox systemd[1]: Started OpenBSD Secure Shell server.
+
+vh@vh-VirtualBox:~$ hostname -I
+
+10.0.2.15 
+ 
+
+********************************************************* SSH Клиент *******************************************
+
+
+vh@192.168.1.102's password:
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 • MobaXterm Personal Edition v22.0 •                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to vh@192.168.1.102                                    │
+    │   • Direct SSH      :  ✔                                             │
+    │   • SSH compression :  ✔                                             │
+    │   • SSH-browser     :  ✔                                             │
+    │   • X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-48-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+0 обновлений может быть применено немедленно.
+
+Last login: Sun Oct  9 21:43:29 2022 from 10.0.2.15
+/usr/bin/xauth:  file /home/vh/.Xauthority does not exist
+vh@vh-VirtualBox:~$ whoami
+vh
+vh@vh-VirtualBox:~$ uname
+Linux
+vh@vh-VirtualBox:~$ hostname -I
+192.168.1.102
+vh@vh-VirtualBox:~$
+
+Linux
+
+***************************************************** 8 Задание ********************************************
+
+vh@vh-VirtualBox:~$ ssh vh@192.168.1.102
+Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-48-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+9 обновлений может быть применено немедленно.
+9 из этих обновлений, являются стандартными обновлениями безопасности.
+Чтобы просмотреть дополнительные обновления выполните: apt list --upgradable
+
+Last login: Mon Oct 10 22:06:04 2022 from 192.168.1.101
+
+
+НЕ ПОЛУЧАЕТСЯ В АМАЗОНЕ ТЕПЕРЬ ЗАРЕГИСТРИРОВАТЬСЯ, А ЗНАЧИТ И СГЕНЕРИРОВАТЬ КЛЮЧ.
+В ЛЮБОМ СЛУЧАЕ КЛЮЧ СОЗДАЛ ЗАХОЖУ ЧЕРЕЗ НЕГО. ВОТ КОД...
+
+h@vh-VirtualBox:~$ ssh-keygen
+
+Generating public/private rsa key pair.
+
+Enter file in which to save the key (/home/vh/.ssh/id_rsa): 
+
+Enter passphrase (empty for no passphrase): 
+
+Enter same passphrase again: 
+
+Your identification has been saved in /home/vh/.ssh/id_rsa
+
+Your public key has been saved in /home/vh/.ssh/id_rsa.pub
+
+The key fingerprint is:
+
+SHA256:XjPeVACwDbfRzY97ZL9v65AVp9BkMKtd8iWEaTyeUD8 vh@vh-VirtualBox
+
+The key's randomart image is:
+
++---[RSA 3072]----+
+
+|        o.+==*+  |
+
+|         =.oBXo  |
+
+|        . o++oE+o|
+
+|           oo*.=*|
+
+|        S = o o=.|
+
+|       . o =  + o|
+
+|        . . .o ..|
+
+|              ...|
+
+|              .++|
+
++----[SHA256]-----+
+
+vh@vh-VirtualBox:~$ hostname -I
+
+192.168.1.102 
+
+vh@vh-VirtualBox:~$ ssh-copy-id vh@192.168.1.102 
+
+The authenticity of host '192.168.1.102 (192.168.1.102)' can't be established.
+
+ED25519 key fingerprint is SHA256:isS3MqPrfrbCoUFORr551UuVlG5FZfwl44VU/kVa6mU.
+
+This host key is known by the following other names/addresses:
+
+    ~/.ssh/known_hosts:1: [hashed name]
+
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+
+vh@192.168.1.102's password: 
+
+
+
+Number of key(s) added: 1
+
+
+
+Now try logging into the machine, with:   "ssh 'vh@192.168.1.102'"
+
+and check to make sure that only the key(s) you wanted were added.
